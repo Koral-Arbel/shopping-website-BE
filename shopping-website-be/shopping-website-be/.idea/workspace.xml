@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fbaccf75-6d0b-492f-9f0d-cef06dae2332" name="Changes" comment="user call">
+      <change afterPath="$PROJECT_DIR$/../../.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/config/JedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/config/RedisDetailsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrderCurrency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrderRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrderResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/ShowResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerOrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerOrderRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/mapper/CustomerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/mapper/CustomerOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/redis/CacheRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/redis/CacheRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerOrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/InternalCustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/userLogin/UserLoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/WebsiteShoppingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/data.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="shopping-website-be" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2JEZRYGJRFstqSnRAmaRlBZAX9z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/קורל/my_project/Final Project - Ecommerce/backend&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.shoppingwebsitebe.shoppingwebsitebe.repository.redis" />
+      <recent name="com.shoppingwebsitebe.shoppingwebsitebe.model" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.shoppingwebsitebe.shoppingwebsitebe.repository.redis" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ShoppingWebsiteBeApplication">
+    <configuration name="ShoppingWebsiteBeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shoppingwebsitebe.shoppingwebsitebe.ShoppingWebsiteBeApplication" />
+      <module name="shopping-website-be.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shoppingwebsitebe.shoppingwebsitebe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="shopping-website-be [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.shopping-website-be [dependencies]" />
+        <item itemvalue="Application.ShoppingWebsiteBeApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fbaccf75-6d0b-492f-9f0d-cef06dae2332" name="Changes" comment="" />
+      <created>1671645194658</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671645194658</updated>
+    </task>
+    <task id="LOCAL‎-00001" summary="user call API valid">
+      <created>1672787083019</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787083019</updated>
+    </task>
+    <task id="LOCAL‎-00002" summary="user call API valid">
+      <created>1672787110318</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787110318</updated>
+    </task>
+    <task id="LOCAL‎-00003" summary="user call API valid">
+      <created>1672787150293</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787150293</updated>
+    </task>
+    <task id="LOCAL‎-00004" summary="user call API valid">
+      <created>1672787179807</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787179807</updated>
+    </task>
+    <task id="LOCAL‎-00005" summary="user call API valid">
+      <created>1672787217996</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787217996</updated>
+    </task>
+    <task id="LOCAL‎-00006" summary="user call API valid">
+      <created>1672787326138</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787326138</updated>
+    </task>
+    <task id="LOCAL‎-00007" summary="user call API valid">
+      <created>1672787356631</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787356631</updated>
+    </task>
+    <task id="LOCAL‎-00008" summary="user call API valid">
+      <created>1672787547836</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787547836</updated>
+    </task>
+    <task id="LOCAL‎-00009" summary="user call API valid">
+      <created>1672787639787</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787639787</updated>
+    </task>
+    <task id="LOCAL‎-00010" summary="user call API valid!!">
+      <created>1672787654983</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL‎-00010" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787654983</updated>
+    </task>
+    <task id="LOCAL‎-00011" summary="user call API valid!!">
+      <created>1672787659290</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL‎-00011" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787659290</updated>
+    </task>
+    <task id="LOCAL‎-00012" summary="user call API valid!!">
+      <created>1672787680165</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL‎-00012" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787680165</updated>
+    </task>
+    <task id="LOCAL‎-00013" summary="user call API valid!!">
+      <created>1672787772280</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672787772280</updated>
+    </task>
+    <task id="LOCAL‎-00014" summary="user call">
+      <created>1672788433132</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL‎-00014" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1672788433132</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="user call API valid!" />
+    <MESSAGE value="user call API valid" />
+    <MESSAGE value="user call API valid!!" />
+    <MESSAGE value="user call" />
+    <option name="LAST_COMMIT_MESSAGE" value="user call" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

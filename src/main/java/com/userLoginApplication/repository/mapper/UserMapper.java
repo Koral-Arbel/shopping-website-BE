@@ -1,20 +1,24 @@
-package com.userLoginApplication.repository.mapper;
+package com.userLoginApplication.repository;
 
+import com.userLoginApplication.model.UserRequest;
+import com.userLoginApplication.model.UserStatus;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserMapper implements RowMapper<CustomUser> {
-
+public class UserMapper implements RowMapper<UserRequest> {
     @Override
-    public CustomUser mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return new CustomUser(
-                rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("password"),
-                rs.getString("roles"),
-                rs.getString("permissions")
+    public UserRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
+        return new UserRequest(
+                rs.getLong("user_id"),
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getString("email"),
+                rs.getString("phone"),
+                rs.getString("country"),
+                rs.getString("city"),
+                UserStatus.valueOf(rs.getString("user_status"))
         );
     }
 }
