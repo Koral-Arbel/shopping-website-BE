@@ -1,15 +1,26 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS user_request;
+DROP TABLE IF EXISTS user_order;
 
-CREATE TABLE user (
-     id int(11) unsigned NOT NULL AUTO_INCREMENT,
-     username varchar(20) NOT NULL DEFAULT '',
-     password varchar(20) NOT NULL DEFAULT '',
-     active tinyint(1) NOT NULL DEFAULT '1',
-     roles varchar(200) NOT NULL DEFAULT '',
-     permissions varchar(200) NOT NULL DEFAULT '',
-     PRIMARY KEY (id)
+CREATE TABLE user_request (
+    user_id int(11) unsigned  NOT NULL AUTO_INCREMENT,
+    first_name varchar(300) NOT NULL DEFAULT '',
+    last_name varchar(300) NOT NULL DEFAULT '',
+    email varchar(300) NOT NULL DEFAULT '',
+    phone varchar(300) NOT NULL,
+    country varchar(300) NOT NULL DEFAULT '',
+    city varchar(300) NOT NULL,
+    PRIMARY KEY (user_id)
 );
 
-INSERT INTO user (username, password, active, roles, permissions) VALUES
-    ('dan', '1234', 1, '', ''),
-    ('alon', '12345', 1, '', '');
+--CREATE TABLE user_order (
+--    order_id int(11) unsigned  NOT NULL AUTO_INCREMENT,
+--    user_id int(11) unsigned NOT NULL,
+--    order_date date,
+--    country varchar(300) NOT NULL DEFAULT '',
+--    city varchar(300) NOT NULL DEFAULT '',
+--    shipping_address varchar(300) NOT NULL DEFAULT '',
+--    total_price varchar(300) NOT NULL DEFAULT '',
+--    order_status varchar(300) DEFAULT '',
+--    PRIMARY KEY (id),
+--    FOREIGN KEY (user_id) REFERENCES user_request(user_id)
+--);
