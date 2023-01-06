@@ -1,6 +1,5 @@
-package com.userLogin.repository.mapper;
+package com.userLoginApplication.repository.mapper;
 
-import com.userLogin.model.CustomUser;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

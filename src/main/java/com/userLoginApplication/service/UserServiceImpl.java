@@ -1,8 +1,6 @@
-package com.userLogin.service;
+package com.userLoginApplication.service;
 
-import com.userLogin.model.CustomUser;
-import com.userLogin.model.CustomUserRequest;
-import com.userLogin.repository.UserRepository;
+import com.userLoginApplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

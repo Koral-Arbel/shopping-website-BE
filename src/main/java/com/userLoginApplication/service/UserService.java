@@ -1,7 +1,4 @@
-package com.userLogin.service;
-
-import com.userLogin.model.CustomUser;
-import com.userLogin.model.CustomUserRequest;
+package com.userLoginApplication.service;
 
 public interface UserService {
     void createUser(CustomUserRequest customUser) throws Exception;

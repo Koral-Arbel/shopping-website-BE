@@ -1,7 +1,6 @@
-package com.userLogin.controller;
+package com.userLoginApplication.controller;
 
-import com.userLogin.model.CustomUserRequest;
-import com.userLogin.service.UserService;
+import com.userLoginApplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

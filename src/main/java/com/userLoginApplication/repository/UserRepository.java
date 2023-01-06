@@ -1,6 +1,4 @@
-package com.userLogin.repository;
-
-import com.userLogin.model.CustomUser;
+package com.userLoginApplication.repository;
 
 public interface UserRepository {
     void createUser(CustomUser customUser);

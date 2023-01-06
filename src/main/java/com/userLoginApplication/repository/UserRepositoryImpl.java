@@ -1,7 +1,6 @@
-package com.userLogin.repository;
+package com.userLoginApplication.repository;
 
-import com.userLogin.model.CustomUser;
-import com.userLogin.repository.mapper.UserMapper;
+import com.userLoginApplication.repository.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
