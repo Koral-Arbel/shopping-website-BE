@@ -1,5 +1,5 @@
 package com.userLoginApplication.repository;
-
+import com.userLoginApplication.repository.UserMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.userLoginApplication.model.UserRequest;
 import com.userLoginApplication.model.UserStatus;
@@ -53,7 +53,7 @@ import java.util.List;
         public UserRequest getUserById(Long userId) {
             String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " WHERE user_id=?";
             try {
-                return jdbcTemplate.queryForObject(sql, new com.userLoginApplication.repository.UserMapper(), userId);
+                return jdbcTemplate.queryForObject(sql, new UserMapper(), userId);
             } catch (EmptyResultDataAccessException error) {
                 return null;
             }
@@ -63,7 +63,7 @@ import java.util.List;
         public List<UserRequest> getUsersByFirstName(String firstName) {
             String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " WHERE first_name=?";
             try {
-                return jdbcTemplate.query(sql, new com.userLoginApplication.repository.UserMapper(), firstName);
+                return jdbcTemplate.query(sql, new UserMapper(), firstName);
             } catch (EmptyResultDataAccessException error) {
                 return null;
             }
@@ -74,7 +74,7 @@ import java.util.List;
         public List<UserRequest> getAllUsersByStatus(UserStatus internal) {
             String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " AS C WHERE C.status = ?";
             try {
-                return jdbcTemplate.query(sql, new com.userLoginApplication.repository.UserMapper());
+                return jdbcTemplate.query(sql, new UserMapper());
             } catch (EmptyResultDataAccessException error) {
                 return null;
             }

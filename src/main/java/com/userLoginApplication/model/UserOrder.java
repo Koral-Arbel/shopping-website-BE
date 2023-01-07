@@ -4,15 +4,15 @@ import java.time.LocalDate;
 
 public class UserOrder {
     private Long orderId;
-    private Long orderUserId;
+    private Long userOrderId;
     private LocalDate orderDate;
     private String shippingAddress;
-    private Double totalPrice;
+    private Long totalPrice;
     private OrderStatus orderStatus;
 
-    public UserOrder(Long orderId, Long orderUserId, LocalDate orderDate, String shippingAddress, Double totalPrice, OrderStatus orderStatus) {
+    public UserOrder(Long orderId, Long userOrderId, LocalDate orderDate, String shippingAddress, Long totalPrice, OrderStatus orderStatus) {
         this.orderId = orderId;
-        this.orderUserId = orderUserId;
+        this.userOrderId = userOrderId;
         this.orderDate = orderDate;
         this.shippingAddress = shippingAddress;
         this.totalPrice = totalPrice;
@@ -23,8 +23,8 @@ public class UserOrder {
         return orderId;
     }
 
-    public Long getOrderUserId() {
-        return orderUserId;
+    public Long getUserOrderId() {
+        return userOrderId;
     }
 
     public LocalDate getOrderDate() {
@@ -35,7 +35,7 @@ public class UserOrder {
         return shippingAddress;
     }
 
-    public Double getTotalPrice() {
+    public Long getTotalPrice() {
         return totalPrice;
     }
 
@@ -47,8 +47,8 @@ public class UserOrder {
         this.orderId = orderId;
     }
 
-    public void setOrderUserId(Long orderUserId) {
-        this.orderUserId = orderUserId;
+    public void setUserOrderId(Long userOrderId) {
+        this.userOrderId = userOrderId;
     }
 
     public void setOrderDate(LocalDate orderDate) {
@@ -59,7 +59,7 @@ public class UserOrder {
         this.shippingAddress = shippingAddress;
     }
 
-    public void setTotalPrice(Double totalPrice) {
+    public void setTotalPrice(Long totalPrice) {
         this.totalPrice = totalPrice;
     }
 

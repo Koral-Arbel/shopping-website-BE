@@ -22,7 +22,7 @@ public class UserRequestController {
     @PutMapping(value = "/user/{userId}/update")
     public void updateUserById(@PathVariable Long userId,
                                @RequestBody UserRequest userRequest) throws Exception {
-        userService.updateUser(userId, userRequest);
+        userService.updateUserById(userId, userRequest);
     }
 
     @DeleteMapping(value = "/user/{userId}/delete")
@@ -31,7 +31,7 @@ public class UserRequestController {
     }
 
     @GetMapping(value = "/user/{userId}")
-    public Long getUserById (@PathVariable Long userId) throws Exception {
+    public UserRequest getUserById (@PathVariable Long userId) throws Exception {
         return userService.getUserById(userId);
     }
 }

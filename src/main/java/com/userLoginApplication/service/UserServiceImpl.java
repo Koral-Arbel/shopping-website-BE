@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(Long userId, UserRequest userRequest) throws Exception {
+    public void updateUserById(Long userId, UserRequest userRequest) throws Exception {
         if(userRequest.getUserStatus() == UserStatus.INTERNAL){
             UserRequest existingUser =userRepository.getUserById(userId);
             if(existingUser.getUserStatus() != UserStatus.INTERNAL) {
@@ -64,8 +64,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Long getUserById(Long userId) throws Exception {
-        return userRepository.getUserById(userId).getUserId();
+    public UserRequest getUserById(Long userId) throws JsonProcessingException {
+        return userRepository.getUserById(userId);
     }
 
     @Override
