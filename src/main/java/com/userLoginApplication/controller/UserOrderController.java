@@ -1,19 +1,20 @@
 package com.userLoginApplication.controller;
 
 import com.userLoginApplication.model.UserOrder;
+import com.userLoginApplication.model.UserOrderRequest;
+import com.userLoginApplication.model.UserOrderResponse;
 import com.userLoginApplication.service.UserOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
 public class UserOrderController {
     @Autowired
     private UserOrderService userOrderService;
 
     @PostMapping(value = "/userOrder/create")
-    public void createCustomerOrder(@RequestBody UserOrder userOrder) throws Exception {
-        userOrderService.createUserOrder(userOrder);
+    public UserOrderResponse createCustomerOrder(@RequestBody UserOrderRequest userOrderRequest) throws Exception {
+        return userOrderService.createUserOrder(userOrderRequest);
     }
 
     @PutMapping(value = "/userOrder/{userOrderId}/update")

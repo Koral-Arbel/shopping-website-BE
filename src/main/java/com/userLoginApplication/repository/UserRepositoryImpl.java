@@ -1,8 +1,8 @@
 package com.userLoginApplication.repository;
-import com.userLoginApplication.repository.UserMapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.userLoginApplication.model.UserRequest;
+
+import com.userLoginApplication.model.User;
 import com.userLoginApplication.model.UserStatus;
+import com.userLoginApplication.repository.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,49 +18,39 @@ import java.util.List;
         private JdbcTemplate jdbcTemplate;
 
 
-        @Autowired
-        private ObjectMapper objectMapper;
-
-
         @Override
-        public void createUser(UserRequest userRequest) {
-            String sql = "INSERT INTO " + USER_REQUEST_TABLE_NAME + " (first_name, last_name, email, phone, country, city) VALUES (?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql,
-                    userRequest.getFirstName(),
-                    userRequest.getLastName(),
-                    userRequest.getEmail(),
-                    userRequest.getPhone(),
-                    userRequest.getCountry(),
-                    userRequest.getCity());
-            System.out.println("successfully created");
+        public Long createUser(User user) {
+            String sql = "INSERT INTO " + USER_REQUEST_TABLE_NAME + " (first_name, last_name, email, phone, country, city, user_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(), user.getCountry(), user.getCity(), user.getUserStatus().name());
+            return jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID();", Long.class);
         }
 
 
         @Override
-        public void updateUserById(Long userId, UserRequest userRequest) {
-            String sql = "UPDATE " + USER_REQUEST_TABLE_NAME + " SET first_name=?, last_name=?, email=?, phone=?, country=?, city=? " +
+        public void updateUserById(Long userId, User user) {
+            String sql = "UPDATE " + USER_REQUEST_TABLE_NAME + " SET first_name=?, last_name=?, email=?, phone=?, country=?, city=?, user_status=? " +
                     "WHERE user_id=?";
-            jdbcTemplate.update(sql, userRequest.getFirstName(), userRequest.getLastName(), userRequest.getEmail(), userRequest.getPhone(), userRequest.getCountry(), userRequest.getCity(), userId);
+            jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(), user.getCountry(), user.getCity(), user.getUserStatus().name(), userId);
         }
 
         @Override
-        public void deleteUserById(Long userId) {
+        public void deleteUserById(Long id) {
             String sql = "DELETE FROM " + USER_REQUEST_TABLE_NAME + " WHERE user_id=?";
-            jdbcTemplate.update(sql, userId);
+            jdbcTemplate.update(sql, id);
         }
 
         @Override
-        public UserRequest getUserById(Long userId) {
+        public User getUserById(Long id) {
             String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " WHERE user_id=?";
             try {
-                return jdbcTemplate.queryForObject(sql, new UserMapper(), userId);
+                return jdbcTemplate.queryForObject(sql, new UserMapper(), id);
             } catch (EmptyResultDataAccessException error) {
                 return null;
             }
         }
 
         @Override
-        public List<UserRequest> getUsersByFirstName(String firstName) {
+        public List<User> getUsersByFirstName(String firstName) {
             String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " WHERE first_name=?";
             try {
                 return jdbcTemplate.query(sql, new UserMapper(), firstName);
@@ -71,7 +61,7 @@ import java.util.List;
 
 
         @Override
-        public List<UserRequest> getAllUsersByStatus(UserStatus internal) {
+        public List<User> getAllUsersByStatus(UserStatus userStatus) {
             String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " AS C WHERE C.status = ?";
             try {
                 return jdbcTemplate.query(sql, new UserMapper());
@@ -86,7 +76,7 @@ import java.util.List;
         }
 
         @Override
-        public List<UserRequest> getAllUsers() {
+        public List<User> getAllUsers() {
             return null;
         }
     }

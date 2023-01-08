@@ -1,13 +1,12 @@
 package com.userLoginApplication.controller;
-
-
-import com.userLoginApplication.model.UserRequest;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.userLoginApplication.model.User;
 import com.userLoginApplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class UserRequestController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -15,14 +14,14 @@ public class UserRequestController {
 
 
     @PostMapping(value = "/user/createUser")
-    public void createUser (@RequestBody UserRequest userRequest) throws Exception {
-        userService.createUser(userRequest);
+    public Long createUser (@RequestBody User user) throws Exception {
+        return userService.createUser(user);
     }
 
     @PutMapping(value = "/user/{userId}/update")
     public void updateUserById(@PathVariable Long userId,
-                               @RequestBody UserRequest userRequest) throws Exception {
-        userService.updateUserById(userId, userRequest);
+                               @RequestBody User user) throws Exception {
+        userService.updateUserById(userId, user);
     }
 
     @DeleteMapping(value = "/user/{userId}/delete")
@@ -31,7 +30,7 @@ public class UserRequestController {
     }
 
     @GetMapping(value = "/user/{userId}")
-    public UserRequest getUserById (@PathVariable Long userId) throws Exception {
+    public User getUserById (@PathVariable Long userId) throws JsonProcessingException {
         return userService.getUserById(userId);
     }
 }

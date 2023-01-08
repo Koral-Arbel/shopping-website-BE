@@ -1,6 +1,6 @@
 package com.userLoginApplication.model;
 
-public class UserRequest {
+public class User {
     private Long userId;
     private String firstName;
     private String lastName;
@@ -10,7 +10,7 @@ public class UserRequest {
     private String city;
     private UserStatus userStatus;
 
-    public UserRequest(Long userId, String firstName, String lastName, String email, String phone, String country, String city, UserStatus userStatus) {
+    public User(Long userId, String firstName, String lastName, String email, String phone, String country, String city, UserStatus userStatus) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;

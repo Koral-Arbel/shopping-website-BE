@@ -1,6 +1,7 @@
 package com.userLoginApplication.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class UserOrder {
     private Long orderId;
@@ -65,5 +66,12 @@ public class UserOrder {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public UserOrderResponse toUserOrderResponse(User user, List<UserOrder> userOrderList){
+        return new UserOrderResponse(
+                user,
+                userOrderList
+        );
     }
 }

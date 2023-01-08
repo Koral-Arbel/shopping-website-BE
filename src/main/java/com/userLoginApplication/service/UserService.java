@@ -1,16 +1,16 @@
 package com.userLoginApplication.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.userLoginApplication.model.UserRequest;
+import com.userLoginApplication.model.User;
 
 import java.util.List;
 
 public interface UserService{
-    void createUser(UserRequest userRequest) throws Exception;
-    void updateUserById(Long userId, UserRequest userRequest) throws Exception;
-    void deleteUserById(Long userId) throws Exception;
-    UserRequest getUserById(Long userId) throws JsonProcessingException;
-    List<UserRequest> getUserByFirstName(String firstName);
-    List<UserRequest> getAllUsers();
+    Long createUser(User user) throws Exception;
+    void updateUserById(Long userId, User user) throws Exception;
+    void deleteUserById(Long id) throws Exception;
+    User getUserById(Long id) throws JsonProcessingException;
+    List<User> getUserByFirstName(String firstName);
+    List<User> getAllUsers();
     List<Long> getUserIdByFirstName(String firstName);
 }
