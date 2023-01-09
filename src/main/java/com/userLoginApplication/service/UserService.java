@@ -6,7 +6,7 @@ import com.userLoginApplication.model.User;
 import java.util.List;
 
 public interface UserService{
-    Long createUser(User user) throws Exception;
+    void createUser(User user) throws Exception;
     void updateUserById(Long userId, User user) throws Exception;
     void deleteUserById(Long id) throws Exception;
     User getUserById(Long id) throws JsonProcessingException;

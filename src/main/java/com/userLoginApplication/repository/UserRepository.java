@@ -6,7 +6,7 @@ import com.userLoginApplication.model.UserStatus;
 import java.util.List;
 
 public interface UserRepository {
-    Long createUser(User user);
+    void createUser(User user);
     void updateUserById(Long userId, User user);
     void deleteUserById(Long id);
     User getUserById(Long id) throws JsonProcessingException;

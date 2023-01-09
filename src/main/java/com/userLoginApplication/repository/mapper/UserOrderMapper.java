@@ -18,6 +18,6 @@ public class UserOrderMapper implements RowMapper<UserOrder> {
                 rs.getString("shipping_address"),
                 rs.getLong("total_price"),
                 OrderStatus.valueOf(rs.getString("order_status"))
-                );
+        );
     }
 }

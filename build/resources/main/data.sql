@@ -1,5 +1,9 @@
 DROP TABLE IF EXISTS user_request;
 DROP TABLE IF EXISTS user_order;
+DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS favorite_item_list;
+DROP TABLE IF EXISTS employee_user_order;
+DROP TABLE IF EXISTS employee_user_favorite_item;
 
 CREATE TABLE user_request (
     user_id int(11) unsigned  NOT NULL AUTO_INCREMENT,
@@ -15,11 +19,44 @@ CREATE TABLE user_request (
 
 CREATE TABLE user_order (
     order_id int(11) unsigned  NOT NULL AUTO_INCREMENT,
-    order_user_id int(11) unsigned NOT NULL,
     order_date date,
     shipping_address varchar(300) NOT NULL DEFAULT '',
     total_price int(300) NOT NULL DEFAULT '',
     order_status varchar(300) DEFAULT '',
-    PRIMARY KEY (order_id),
-    FOREIGN KEY (order_user_id) REFERENCES user_request(user_id)
+    order_user_id int(11) unsigned  NOT NULL,
+    PRIMARY KEY (order_id)
 );
+
+CREATE TABLE item (
+     item_id int(11) unsigned  NOT NULL AUTO_INCREMENT,
+     item_name varchar(300) NOT NULL,
+     item_price int(300) NOT NULL,
+     PRIMARY KEY(item_id)
+);
+
+CREATE TABLE favorite_item_list (
+    favorite_item_id int(11) unsigned  NOT NULL AUTO_INCREMENT,
+    user_id int(11) unsigned  NOT NULL,
+    item_id int(11) unsigned  NOT NULL,
+    PRIMARY KEY(favorite_item_id)
+);
+
+CREATE TABLE employee_user_order(
+     id int(11) unsigned  NOT NULL AUTO_INCREMENT,
+     order_user_id int(11) unsigned NOT NULL,
+     item_id int(11) unsigned  NOT NULL,
+     FOREIGN KEY (order_user_id) REFERENCES user_request(user_id),
+     FOREIGN KEY (item_id) REFERENCES item(item_id),
+     PRIMARY KEY(id)
+);
+
+CREATE TABLE employee_user_favorite_item(
+     id int(11) unsigned  NOT NULL AUTO_INCREMENT,
+     favorite_item_id int(11) unsigned  NOT NULL,
+     user_id int(11) unsigned  NOT NULL,
+     FOREIGN KEY (favorite_item_id) REFERENCES favorite_item_list(favorite_item_id),
+     FOREIGN KEY (user_id) REFERENCES user_request(user_id),
+     PRIMARY KEY(id)
+);
+
+

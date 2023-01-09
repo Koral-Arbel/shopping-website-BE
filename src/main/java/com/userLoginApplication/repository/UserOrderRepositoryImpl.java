@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import java.sql.Date;
 import java.time.ZoneId;
 import java.util.List;
@@ -40,10 +39,10 @@ public class UserOrderRepositoryImpl implements UserOrderRepository {
     }
 
     @Override
-    public UserOrder getUserOrderById(Long userOrderId) {
+    public UserOrder getUserOrderById(Long orderId) {
         String sql = "SELECT * FROM " + USER_ORDER_TABLE_NAME + " WHERE order_id=?";
         try {
-            return jdbcTemplate.queryForObject(sql, new UserOrderMapper(), userOrderId);
+            return jdbcTemplate.queryForObject(sql, new UserOrderMapper(), orderId);
         } catch (EmptyResultDataAccessException error) {
             return null;
         }

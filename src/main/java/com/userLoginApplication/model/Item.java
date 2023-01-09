@@ -3,9 +3,10 @@ package com.userLoginApplication.model;
 public class Item {
     private Long itemId;
     private String itemName;
-    private Double itemPrice;
+    private Long itemPrice;
 
-    public Item(Long itemId, String itemName, Double itemPrice) {
+
+    public Item(Long itemId, String itemName, Long itemPrice) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
@@ -19,7 +20,7 @@ public class Item {
         return itemName;
     }
 
-    public Double getItemPrice() {
+    public Long getItemPrice() {
         return itemPrice;
     }
 
@@ -31,7 +32,7 @@ public class Item {
         this.itemName = itemName;
     }
 
-    public void setItemPrice(Double itemPrice) {
+    public void setItemPrice(Long itemPrice) {
         this.itemPrice = itemPrice;
     }
 }

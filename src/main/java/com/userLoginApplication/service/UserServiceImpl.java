@@ -21,18 +21,18 @@ public class UserServiceImpl implements UserService {
     ObjectMapper objectMapper;
 
     @Override
-    public Long createUser(User user) throws Exception {
-        if (user.getUserStatus() == UserStatus.INTERNAL) {
-            List<User> internalUser = userRepository.getAllUsersByStatus(UserStatus.INTERNAL);
-            if (internalUser.size() < 10) {
-                return userRepository.createUser(user);
-            } else {
-                throw new Exception("Cant create new user with internal status. Out of limit");
-            }
-        } else {
-            return userRepository.createUser(user);
+    public void createUser(User user) throws Exception {
+//        if (user.getUserStatus() == UserStatus.INTERNAL) {
+//            List<User> internalUser = userRepository.getAllUsersByStatus(UserStatus.INTERNAL);
+//            if (internalUser.size() < 10) {
+//                userRepository.createUser(user);
+//            } else {
+//                throw new Exception("Cant create new user with internal status. Out of limit");
+//            }
+//        } else {
+            userRepository.createUser(user);
         }
-    }
+//    }
 
 
     @Override

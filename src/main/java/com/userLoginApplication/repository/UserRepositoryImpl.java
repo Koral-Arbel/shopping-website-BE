@@ -19,11 +19,11 @@ import java.util.List;
 
 
         @Override
-        public Long createUser(User user) {
-            String sql = "INSERT INTO " + USER_REQUEST_TABLE_NAME + " (first_name, last_name, email, phone, country, city, user_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        public void createUser(User user) {
+            String sql = "INSERT INTO " + USER_REQUEST_TABLE_NAME + " (first_name, last_name, email, phone, country, city, user_status ) VALUES (?, ?, ?, ?, ?, ?, ?)";
             jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(), user.getCountry(), user.getCity(), user.getUserStatus().name());
-            return jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID();", Long.class);
         }
+
 
 
         @Override

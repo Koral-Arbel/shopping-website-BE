@@ -14,8 +14,8 @@ public class UserController {
 
 
     @PostMapping(value = "/user/createUser")
-    public Long createUser (@RequestBody User user) throws Exception {
-        return userService.createUser(user);
+    public void createUser (@RequestBody User user) throws Exception {
+        userService.createUser(user);
     }
 
     @PutMapping(value = "/user/{userId}/update")

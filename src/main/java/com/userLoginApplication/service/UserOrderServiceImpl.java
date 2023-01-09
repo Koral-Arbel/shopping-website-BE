@@ -1,14 +1,9 @@
 package com.userLoginApplication.service;
 
-import com.userLoginApplication.model.User;
 import com.userLoginApplication.model.UserOrder;
-import com.userLoginApplication.model.UserOrderRequest;
-import com.userLoginApplication.model.UserOrderResponse;
 import com.userLoginApplication.repository.UserOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserOrderServiceImpl implements UserOrderService {
@@ -21,32 +16,38 @@ public class UserOrderServiceImpl implements UserOrderService {
 
 
     @Override
-    public UserOrderResponse createUserOrder(UserOrderRequest userOrderRequest) throws Exception {
-        User selectedUser = userOrderRequest.getUser();
-        User userForResponse = null;
-        if (selectedUser != null) {
-            if(selectedUser.getUserId() != null ){
-                User existingUser = userService.getUserById(selectedUser.getUserId());
-                if (existingUser != null){
-                    //create new user order and associate to user
-                    userOrderRepository.createUserOrder(userOrderRequest.toUserOrder());
-                    userForResponse = existingUser;
-                } else {
-                    throw new Exception("Can't create userOrder with non existing user id: " + selectedUser.getUserId());
-                }
-            } else {
-                Long createdUserId = userService.createUser(selectedUser);
-                UserOrder userOrderToCreate = userOrderRequest.toUserOrder();
-                userOrderToCreate.setUserOrderId(createdUserId);
-                userOrderRepository.createUserOrder(userOrderToCreate);
-                userForResponse = userService.getUserById(createdUserId);
-            }
-
-        } else {
-            throw new Exception("Cant create userOrder with user as null");
-        }
-        List<UserOrder> userOrderList = userOrderRepository.getUserOrderByUserId(userForResponse.getUserId());
-        return userOrderRequest.getUserOrder().toUserOrderResponse(userForResponse, userOrderList);
+    public void createUserOrder(UserOrder userOrder) throws Exception {
+//        User selectedUser = userOrderRequest.getUser();
+//        User userForResponse = null;
+//        System.out.println("1");
+//        if (selectedUser != null) {
+//            System.out.println("2");
+//            if(selectedUser.getUserId() != null ){
+//                System.out.println("3");
+//                User existingUser = userService.getUserById(selectedUser.getUserId());
+//                if (existingUser != null){
+//                    System.out.println("4");
+//                    //create new user order and associate to user
+//                    userOrderRepository.createUserOrder(userOrderRequest.toUserOrder());
+//                    userForResponse = existingUser;
+//                } else {
+//                    System.out.println("5");
+//                    throw new Exception("Can't create userOrder with non existing user id: " + selectedUser.getUserId());
+//                }
+//            } else {
+//                System.out.println("6");
+//
+//                return null;
+//            }
+//
+//        } else {
+//            System.out.println("7");
+//            throw new Exception("Cant create userOrder with user as null");
+//        }
+//        System.out.println("8");
+//        List<UserOrder> userOrderList = userOrderRepository.getUserOrderByUserId(userForResponse.getUserId());
+//        return userOrderRequest.getUserOrder().toUserOrderResponse(userForResponse, userOrderList);
+         userOrderRepository.createUserOrder(userOrder);
     }
 
     @Override
