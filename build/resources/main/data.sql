@@ -59,4 +59,14 @@ CREATE TABLE employee_user_favorite_item(
      PRIMARY KEY(id)
 );
 
+--INSERT INTO user_order (item_name, order_date) VALUES
+--('iPhone14', '2023-07-29'),
+--('iPhone13', '2023-07-25'),
+--('iPhone12', '2023-07-19'),
+--('iPhone11', '2023-07-14'),
+
+
+
+
+
 

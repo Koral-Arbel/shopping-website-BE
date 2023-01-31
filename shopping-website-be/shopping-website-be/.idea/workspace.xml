@@ -4,49 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbaccf75-6d0b-492f-9f0d-cef06dae2332" name="Changes" comment="user call">
-      <change afterPath="$PROJECT_DIR$/../../.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/config/JedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/config/RedisDetailsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrderCurrency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerOrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/CustomerStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/model/ShowResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerOrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerOrderRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/CustomerRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/mapper/CustomerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/mapper/CustomerOrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/redis/CacheRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/repository/redis/CacheRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerOrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/CustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/service/InternalCustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/com/userLogin/UserLoginApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/com/userLogin/WebsiteShoppingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/resources/data.sql" afterDir="false" />
-    </list>
+    <list default="true" id="fbaccf75-6d0b-492f-9f0d-cef06dae2332" name="Changes" comment="user call" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
