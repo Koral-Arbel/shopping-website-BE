@@ -12,11 +12,11 @@ public class UserOrderMapper implements RowMapper<UserOrder> {
     @Override
     public UserOrder mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new UserOrder(
-                rs.getLong("order_id"),
-                rs.getLong("order_user_id"),
-                rs.getDate("order_date").toLocalDate(),
-                rs.getString("shipping_address"),
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getDate("date"),
                 rs.getLong("total_price"),
+                rs.getString("shipping_address"),
                 OrderStatus.valueOf(rs.getString("order_status"))
         );
     }

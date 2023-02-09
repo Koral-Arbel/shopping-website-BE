@@ -6,53 +6,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import java.sql.Date;
-import java.time.ZoneId;
+
 import java.util.List;
 
 @Repository
 public class UserOrderRepositoryImpl implements UserOrderRepository {
-
     private static final String USER_ORDER_TABLE_NAME = "user_order";
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
 
     @Override
-    public void createUserOrder(UserOrder userOrder) throws Exception {
-        String sql = "INSERT INTO " + USER_ORDER_TABLE_NAME + " (order_user_id, order_date, shipping_address, total_price, order_status) VALUES (?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, userOrder.getUserOrderId(), userOrder.getOrderDate(), userOrder.getShippingAddress(), userOrder.getTotalPrice(), userOrder.getOrderStatus().name());
+    public void createOrder(UserOrder userOrder) {
+        String sql = "INSERT INTO " + USER_ORDER_TABLE_NAME + " (username,order_date,total_price,shipping_address,order_status) VALUES (?,?,?,?,?)";
+        jdbcTemplate.update(sql,userOrder.getUsername(),userOrder.getDate(),userOrder.getTotalPrice(),userOrder.getShippingAddress(),userOrder.getOrderStatus());
     }
 
     @Override
-    public void updateUserOrderById(Long userOrderId, UserOrder userOrder) throws Exception {
-        Date orderDate = (Date) Date.from(userOrder.getOrderDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        String sql = "UPDATE " + USER_ORDER_TABLE_NAME + " SET order_user_id=?, order_date=?, shipping_address=?, total_price=?, order_status=? " +
-                "WHERE order_id=?";
-        jdbcTemplate.update(sql, userOrder.getUserOrderId(), userOrder.getOrderDate(), userOrder.getShippingAddress(), userOrder.getTotalPrice(), userOrder.getOrderStatus().name(), userOrderId, orderDate);
-    }
-
-    @Override
-    public void deleteUserOrderById(Long orderId) throws Exception {
-        String sql = "DELETE FROM " + USER_ORDER_TABLE_NAME + " WHERE order_id=?";
-        jdbcTemplate.update(sql, orderId);
-    }
-
-    @Override
-    public UserOrder getUserOrderById(Long orderId) {
-        String sql = "SELECT * FROM " + USER_ORDER_TABLE_NAME + " WHERE order_id=?";
+    public UserOrder getOrderById(String username, Long orderId) {
+        String sql = "SELECT * FROM " + USER_ORDER_TABLE_NAME + " WHERE username = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, new UserOrderMapper(), orderId);
-        } catch (EmptyResultDataAccessException error) {
+            return jdbcTemplate.queryForObject(sql, new UserOrderMapper(), username);
+        } catch (EmptyResultDataAccessException error){
             return null;
         }
     }
 
     @Override
-    public List<UserOrder> getUserOrderByUserId(Long userId) {
-        String sql = "SELECT * FROM " + USER_ORDER_TABLE_NAME + " WHERE order_user_id=?";
+    public void updateOrderById(Long orderId, UserOrder userOrder) {
+        String sql = "UPDATE " + USER_ORDER_TABLE_NAME + " SET username=?,order_date=?,total_price=?,shipping_address=?,order_status=? " + "WHERE id=?";
+        jdbcTemplate.update(sql,userOrder.getUsername(),userOrder.getDate(),userOrder.getTotalPrice(),userOrder.getShippingAddress(),userOrder.getOrderStatus(),orderId);
+    }
+
+    @Override
+    public void deleteOrderById(Long orderId) {
+        String sql = "DELETE FROM " + USER_ORDER_TABLE_NAME + " WHERE username = ?";
+        jdbcTemplate.update(sql, orderId);
+    }
+
+    @Override
+    public List<UserOrder> getAllOrdersById(String username) {
+        String sql = "SELECT * FROM " + USER_ORDER_TABLE_NAME + " WHERE username = ?";
         try {
-            return jdbcTemplate.query(sql, new UserOrderMapper(), userId);
+            return jdbcTemplate.query(sql, new UserOrderMapper(), username);
         } catch (EmptyResultDataAccessException error) {
             return null;
         }

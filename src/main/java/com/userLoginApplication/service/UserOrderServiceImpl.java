@@ -1,67 +1,77 @@
 package com.userLoginApplication.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.userLoginApplication.model.*;
+import com.userLoginApplication.model.Item;
+import com.userLoginApplication.model.OrderList;
 import com.userLoginApplication.model.UserOrder;
+import com.userLoginApplication.repository.OrderListRepository;
 import com.userLoginApplication.repository.UserOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserOrderServiceImpl implements UserOrderService {
+    @Autowired
+    ObjectMapper objectMapper;
+    @Autowired
+    private OrderListRepository orderListRepository;
+    @Autowired
+    private UserOrderRepository userOrderRepository;
 
     @Autowired
-    UserOrderRepository userOrderRepository;
-
+    private UserService userService;
     @Autowired
-    UserService userService;
+    private ItemService itemService;
 
 
     @Override
-    public void createUserOrder(UserOrder userOrder) throws Exception {
-//        User selectedUser = userOrderRequest.getUser();
-//        User userForResponse = null;
-//        System.out.println("1");
-//        if (selectedUser != null) {
-//            System.out.println("2");
-//            if(selectedUser.getUserId() != null ){
-//                System.out.println("3");
-//                User existingUser = userService.getUserById(selectedUser.getUserId());
-//                if (existingUser != null){
-//                    System.out.println("4");
-//                    //create new user order and associate to user
-//                    userOrderRepository.createUserOrder(userOrderRequest.toUserOrder());
-//                    userForResponse = existingUser;
-//                } else {
-//                    System.out.println("5");
-//                    throw new Exception("Can't create userOrder with non existing user id: " + selectedUser.getUserId());
-//                }
-//            } else {
-//                System.out.println("6");
-//
-//                return null;
-//            }
-//
-//        } else {
-//            System.out.println("7");
-//            throw new Exception("Cant create userOrder with user as null");
-//        }
-//        System.out.println("8");
-//        List<UserOrder> userOrderList = userOrderRepository.getUserOrderByUserId(userForResponse.getUserId());
-//        return userOrderRequest.getUserOrder().toUserOrderResponse(userForResponse, userOrderList);
-         userOrderRepository.createUserOrder(userOrder);
+    public void createOrder(UserOrder userOrder) throws Exception {
+        List<OrderList> orderLists = new ArrayList<>(orderListRepository.getAllOrdersByUsername(userOrder.getUsername()));
+        List<Item> orderItemlist = new ArrayList<>();
+        Long totalPrice = null;
+        for (int i = 0; i < orderLists.size(); i++) {
+            orderItemlist.add(itemService.getItemById(orderLists.get(i).getItemId()));
+            totalPrice += orderItemlist.get(i).getPrice();
+        }
+        String shippingAddress = (userService.findUserByUsername(userOrder.getUsername()).getUsername()) + " " + (userService.findUserByUsername(userOrder.getUsername()).getActive());
+        UserOrder newUserOrder = new UserOrder(null, userOrder.getUsername(), userOrder.getDate(), totalPrice, shippingAddress, OrderStatus.valueOf("CLOSE"));
+        userOrderRepository.createOrder(newUserOrder);
+        System.out.println(totalPrice);
     }
 
     @Override
-    public void updateUserOrderById(Long userOrderId, UserOrder userOrder) throws Exception {
-        userOrderRepository.updateUserOrderById(userOrderId, userOrder);
+    public UserOrder getOrderById(String username, Long orderId) {
+        return userOrderRepository.getOrderById(username,orderId);    }
+
+    @Override
+    public void updateOrderById(Long orderId, UserOrder userOrder) throws Exception {
+        if (userOrderRepository.getOrderById(userOrder.getUsername(), orderId) != null)
+        {
+            userOrderRepository.updateOrderById(orderId,userOrder);
+        } else {
+            throw new Exception("No such order to update");
+        }
     }
 
     @Override
-    public void deleteUserOrderById(Long orderId) throws Exception {
-        userOrderRepository.deleteUserOrderById(orderId);
+    public void deleteOrderById(Long orderId, String username) throws Exception {
+        if (userOrderRepository.getOrderById(username, orderId) == null) {
+            throw new Exception("No such order exist");
+        } else {
+            userOrderRepository.deleteOrderById(orderId);
+        }
     }
-
     @Override
-    public UserOrder getUserOrderById(Long userOrderId) {
-       return userOrderRepository.getUserOrderById(userOrderId);
+    public List<UserOrder> getAllOrdersById(String username) throws Exception {
+        if (userOrderRepository.getAllOrdersById(username) != null)
+        {
+            return userOrderRepository.getAllOrdersById(username);
+        } else {
+            throw new Exception("No such order");
+        }
     }
 }

@@ -2,37 +2,56 @@ package com.userLoginApplication.model;
 
 public class Item {
     private Long itemId;
-    private String itemName;
-    private Long itemPrice;
+    private String title;
+    private Long price;
+    private String image;
+    private Long quantityAvailable;
 
-
-    public Item(Long itemId, String itemName, Long itemPrice) {
+    public Item(Long itemId, String title, Long price, String image, Long quantityAvailable) {
         this.itemId = itemId;
-        this.itemName = itemName;
-        this.itemPrice = itemPrice;
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.quantityAvailable = quantityAvailable;
     }
 
     public Long getItemId() {
         return itemId;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getTitle() {
+        return title;
     }
 
-    public Long getItemPrice() {
-        return itemPrice;
+    public Long getPrice() {
+        return price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public Long getQuantityAvailable() {
+        return quantityAvailable;
     }
 
     public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setItemPrice(Long itemPrice) {
-        this.itemPrice = itemPrice;
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setQuantityAvailable(Long quantityAvailable) {
+        this.quantityAvailable = quantityAvailable;
     }
 }

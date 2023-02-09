@@ -1,7 +1,6 @@
 package com.userLoginApplication.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.userLoginApplication.model.Item;
 import com.userLoginApplication.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,39 +12,25 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
-    ItemRepository itemRepository;
-
-    @Autowired
-    ObjectMapper objectMapper;
-
+    private ItemRepository itemRepository;
 
     @Override
     public void createItem(Item item) throws Exception {
-
+        itemRepository.createItem(item);
     }
 
     @Override
-    public void updateItemById(Long itemId, Item item) throws Exception {
-
+    public Item getItemById(Long itemId) throws Exception {
+        return itemRepository.getItemById(itemId);
     }
 
     @Override
-    public void deleteItemById(Long id) throws Exception {
-
+    public void deleteItemById(Long itemId) throws Exception {
+        itemRepository.deleteItemById(itemId);
     }
 
     @Override
-    public Item getItemById(Long id) throws JsonProcessingException {
-        return null;
-    }
-
-    @Override
-    public List<Item> getItemByName(String itemName) {
-        return null;
-    }
-
-    @Override
-    public List<Item> getAllItems() {
-        return null;
+    public List<Item> getAllItems() throws Exception {
+        return itemRepository.getAllItems();
     }
 }

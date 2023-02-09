@@ -1,22 +1,13 @@
 package com.userLoginApplication.repository;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.userLoginApplication.model.User;
-import com.userLoginApplication.model.UserStatus;
-import java.util.List;
+import com.userLoginApplication.model.CustomUser;
 
 public interface UserRepository {
-    void createUser(User user);
-    void updateUserById(Long userId, User user);
-    void deleteUserById(Long id);
-    User getUserById(Long id) throws JsonProcessingException;
-
-    List<User> getUsersByFirstName(String firstName);
-
-    List<User> getAllUsersByStatus(UserStatus userStatus);
-
-    List<Long> getUserIdByFirstName(String firstName);
-    List<User> getAllUsers();
-
-
+    void createUser(CustomUser customUser);
+    void updateUserDetailsByAuth(CustomUser customUser,String username);
+    void deleteUserById(String username);
+    CustomUser findUserByUsername(String username);
 }
+
+
+

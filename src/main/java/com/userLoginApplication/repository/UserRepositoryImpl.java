@@ -1,84 +1,47 @@
 package com.userLoginApplication.repository;
 
-import com.userLoginApplication.model.User;
-import com.userLoginApplication.model.UserStatus;
+import com.userLoginApplication.model.CustomUser;
 import com.userLoginApplication.repository.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+public class UserRepositoryImpl implements UserRepository {
 
+    private static final String USER_TABLE_NAME = "user";
 
-    @Repository
-    public class UserRepositoryImpl implements UserRepository{
-        private static final String USER_REQUEST_TABLE_NAME = "user_request";
-        @Autowired
-        private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
+    @Override
+    public void createUser(CustomUser customUser) {
+        String sql = "INSERT INTO " + USER_TABLE_NAME + " (username, password, roles, permissions) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, customUser.getUsername(), customUser.getPassword(), customUser.getRoles(), customUser.getPermissions());
+    }
 
-        @Override
-        public void createUser(User user) {
-            String sql = "INSERT INTO " + USER_REQUEST_TABLE_NAME + " (first_name, last_name, email, phone, country, city, user_status ) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(), user.getCountry(), user.getCity(), user.getUserStatus().name());
-        }
+    @Override
+    public void updateUserDetailsByAuth(CustomUser customUser, String username) {
+        String sql = "UPDATE " + USER_TABLE_NAME + " SET password=? " + "WHERE username=?";
+        jdbcTemplate.update(sql, customUser.getPassword() ,username);
+    }
 
+    @Override
+    public void deleteUserById(String username) {
+        String sql = "DELETE FROM " + USER_TABLE_NAME + " WHERE username = ?";
+        jdbcTemplate.update(sql, username);
+    }
 
-
-        @Override
-        public void updateUserById(Long userId, User user) {
-            String sql = "UPDATE " + USER_REQUEST_TABLE_NAME + " SET first_name=?, last_name=?, email=?, phone=?, country=?, city=?, user_status=? " +
-                    "WHERE user_id=?";
-            jdbcTemplate.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone(), user.getCountry(), user.getCity(), user.getUserStatus().name(), userId);
-        }
-
-        @Override
-        public void deleteUserById(Long id) {
-            String sql = "DELETE FROM " + USER_REQUEST_TABLE_NAME + " WHERE user_id=?";
-            jdbcTemplate.update(sql, id);
-        }
-
-        @Override
-        public User getUserById(Long id) {
-            String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " WHERE user_id=?";
-            try {
-                return jdbcTemplate.queryForObject(sql, new UserMapper(), id);
-            } catch (EmptyResultDataAccessException error) {
-                return null;
-            }
-        }
-
-        @Override
-        public List<User> getUsersByFirstName(String firstName) {
-            String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " WHERE first_name=?";
-            try {
-                return jdbcTemplate.query(sql, new UserMapper(), firstName);
-            } catch (EmptyResultDataAccessException error) {
-                return null;
-            }
-        }
-
-
-        @Override
-        public List<User> getAllUsersByStatus(UserStatus userStatus) {
-            String sql = "SELECT * FROM " + USER_REQUEST_TABLE_NAME + " AS C WHERE C.status = ?";
-            try {
-                return jdbcTemplate.query(sql, new UserMapper());
-            } catch (EmptyResultDataAccessException error) {
-                return null;
-            }
-        }
-
-        @Override
-        public List<Long> getUserIdByFirstName(String firstName) {
-            return null;
-        }
-
-        @Override
-        public List<User> getAllUsers() {
+    @Override
+    public CustomUser findUserByUsername(String username) {
+        String sql = "SELECT * FROM " + USER_TABLE_NAME + " WHERE username=?";
+        try {
+            return jdbcTemplate.queryForObject(sql, new UserMapper(), username);
+        } catch (EmptyResultDataAccessException error) {
             return null;
         }
     }
+}
 
 

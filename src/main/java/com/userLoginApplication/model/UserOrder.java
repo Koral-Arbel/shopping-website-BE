@@ -1,77 +1,69 @@
 package com.userLoginApplication.model;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.sql.Date;
 
 public class UserOrder {
-    private Long orderId;
-    private Long userOrderId;
-    private LocalDate orderDate;
-    private String shippingAddress;
+    private Long id;
+    private String username;
+    private Date date;
     private Long totalPrice;
+    private String shippingAddress;
     private OrderStatus orderStatus;
 
-    public UserOrder(Long orderId, Long userOrderId, LocalDate orderDate, String shippingAddress, Long totalPrice, OrderStatus orderStatus) {
-        this.orderId = orderId;
-        this.userOrderId = userOrderId;
-        this.orderDate = orderDate;
-        this.shippingAddress = shippingAddress;
+    public UserOrder(Long id, String username, Date date, Long totalPrice, String shippingAddress, OrderStatus orderStatus) {
+        this.id = id;
+        this.username = username;
+        this.date = date;
         this.totalPrice = totalPrice;
+        this.shippingAddress = shippingAddress;
         this.orderStatus = orderStatus;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getId() {
+        return id;
     }
 
-    public Long getUserOrderId() {
-        return userOrderId;
+    public String getUsername() {
+        return username;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public String getShippingAddress() {
-        return shippingAddress;
+    public Date getDate() {
+        return date;
     }
 
     public Long getTotalPrice() {
         return totalPrice;
     }
 
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setUserOrderId(Long userOrderId) {
-        this.userOrderId = userOrderId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setTotalPrice(Long totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 
-    public UserOrderResponse toUserOrderResponse(User user, List<UserOrder> userOrderList){
-        return new UserOrderResponse(
-                user,
-                userOrderList
-        );
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 }

@@ -1,33 +1,45 @@
 package com.userLoginApplication.controller;
 
+
 import com.userLoginApplication.model.UserOrder;
 import com.userLoginApplication.service.UserOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/ecommerce/order")
 public class UserOrderController {
     @Autowired
     private UserOrderService userOrderService;
 
-    @PostMapping(value = "/userOrder/create")
-    public void createCustomerOrder(@RequestBody UserOrder userOrder) throws Exception {
-        userOrderService.createUserOrder(userOrder);
+    @PostMapping(value = "/create")
+    @CrossOrigin
+    public void createUserOrder(@RequestBody UserOrder userOrder ) throws Exception {
+        userOrderService.createOrder(userOrder);
+    }
+    @GetMapping(value = "/get")
+    @CrossOrigin
+    public UserOrder getUserOrderBy(@RequestParam String username,Long orderId) throws Exception {
+        return userOrderService.getOrderById(username, orderId);
+    }
+    @GetMapping(value = "/getAll")
+    @CrossOrigin
+    public List<UserOrder> getAllUserOrderBy(@RequestParam String username) throws Exception {
+        return userOrderService.getAllOrdersById(username);
     }
 
-    @PutMapping(value = "/userOrder/{userOrderId}/update")
-    public void updateUserOrderById(@PathVariable Long userOrderId,
+    @PutMapping(value = "/update")
+    @CrossOrigin
+    public void updateUserOrderById(@RequestParam Long orderId,
                                     @RequestBody UserOrder userOrder) throws Exception {
-        userOrderService.updateUserOrderById(userOrderId, userOrder);
+        userOrderService.updateOrderById(orderId, userOrder);
     }
 
-    @DeleteMapping(value = "/userOrder/{userOrderId}/delete")
-    public void deleteUserOrderById(@PathVariable Long userOrderId) throws Exception {
-        userOrderService.deleteUserOrderById(userOrderId);
-    }
-
-    @GetMapping(value = "/userOrder/{userOrderId}")
-    public UserOrder getUserOrderById(@PathVariable Long orderId) {
-        return userOrderService.getUserOrderById(orderId);
+    @DeleteMapping(value = "/delete")
+    @CrossOrigin
+    public void deleteOrderById(@RequestParam Long orderId,String username) throws Exception {
+        userOrderService.deleteOrderById(orderId, username);
     }
 }

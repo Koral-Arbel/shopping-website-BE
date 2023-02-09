@@ -2,10 +2,12 @@ package com.userLoginApplication.service;
 
 import com.userLoginApplication.model.UserOrder;
 
-public interface UserOrderService {
-    void createUserOrder(UserOrder userOrder) throws Exception;
-    void updateUserOrderById(Long userOrderId, UserOrder userOrder) throws Exception;
-    void deleteUserOrderById(Long orderId) throws Exception;
-    UserOrder getUserOrderById(Long orderId);
+import java.util.List;
 
+public interface UserOrderService {
+    void createOrder(UserOrder userOrder)throws Exception;
+    UserOrder getOrderById(String username,Long orderId);
+    void updateOrderById(Long orderId,UserOrder userOrder) throws Exception;
+    void deleteOrderById(Long orderId,String username) throws Exception;
+    List<UserOrder> getAllOrdersById(String username)throws Exception;
 }
